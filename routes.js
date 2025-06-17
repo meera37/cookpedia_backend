@@ -41,6 +41,10 @@ routes.get('/downloaded-user-recipes',jwt, downloadController.getAllDownloadedRe
 //path to update profile
 routes.put('/profile-update',jwt,userController.updateProfileController)
 
+//path to get all users
+routes.get('/all-users',userController.getAllUsersConstroller)
 
+//path to get all downloads
+routes.get('/all-downloads',downloadController.getAlldownloadController)
 
 module.exports = routes

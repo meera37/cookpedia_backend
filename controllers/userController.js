@@ -146,3 +146,16 @@ exports.updateProfileController = async(req,res)=>{
     }
     
 }
+
+//get all user controler
+exports.getAllUsersConstroller = async(req,res)=>{
+try {
+    const allUsers = await users.find()
+    console.log(allUsers);
+    
+    res.status(200).json(allUsers)
+    
+} catch (error) {
+    res.status(401).json(error)
+}
+}
