@@ -21,7 +21,7 @@ exports.addSaveRecipeController = async(req,res)=>{
             res.status(200).json(newSavedRecipe)
         }
     } catch (error) {
-      res.status(401).json(error)  
+      res.status(500).json(error)  
     }
 }
 
@@ -33,7 +33,7 @@ exports.getAllSavedUserRecipesController = async(req,res)=>{
         const allSavedRecipes = await savedRecipes.find({userId})
         res.status(200).json(allSavedRecipes)
     } catch (error) {
-        res.status(401).json(error)
+        res.status(500).json(error)
     }
 }
 
@@ -44,6 +44,6 @@ exports.deleteSavedRecipesController = async(req,res)=>{
         res.status(200).json('deletion successful')
         
     } catch (error) {
-        res.status(401).json(error)
+        res.status(500).json(error)
     }
 }

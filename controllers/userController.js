@@ -142,7 +142,7 @@ exports.updateProfileController = async(req,res)=>{
             res.status(406).json('User does not exist')
         }
     } catch (error) {
-        res.status(401).json(error)
+        res.status(500).json(error)
     }
     
 }
@@ -156,6 +156,6 @@ try {
     res.status(200).json(allUsers)
     
 } catch (error) {
-    res.status(401).json(error)
+    res.status(500).json(error)
 }
 }

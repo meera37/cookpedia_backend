@@ -36,7 +36,7 @@ exports.viewRecipeController = async(req,res)=>{
     res.status(200).json(RecipeDetails)
     
    } catch (error) {
-    res.status(401).json(error)
+    res.status(500).json(error)
    }
 }
 
@@ -53,4 +53,46 @@ exports.getAllRelatedRecipesController = async(req,res)=>{
     } catch (error) {
         
     }
+}
+
+exports.addNewRecipeController = async(req,res)=>{
+    const {recipeName,preTime,calories, serving, cookingTime, rating, modeofCooking, mealType, cuisineType, ingredients, instructions, image} = req.body
+    console.log(recipeName,preTime,calories, serving, cookingTime, rating, modeofCooking, mealType, cuisineType, ingredients, instructions, image);
+    
+
+    try {
+        const newRecipe = new recipes({
+            name:recipeName,
+            ingredients,
+            instructions,
+            prepTimeMinutes:preTime,
+            cookTimeMinutes:cookingTime,
+            servings:serving,
+            difficulty:modeofCooking,
+            cuisine:cuisineType,
+            caloriesPerServing:calories,
+            image,
+            rating,
+            mealType
+        })
+        await newRecipe.save()
+        res.status(200).json(newRecipe)
+
+    } catch (error) {
+       res.status(500).json(error) 
+    }
+}
+
+exports.deleteRecipeController = async(req,res)=>{
+    const {id} = req.params
+    console.log(id);
+    try {
+
+        await recipes.findByIdAndDelete({_id:id})
+        res.status(200).json('deletion successful')
+        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+    
 }

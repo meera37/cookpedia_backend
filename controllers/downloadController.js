@@ -28,7 +28,7 @@ res.status(200).json(existingRecipe)
         }
         
     } catch (error) {
-      res.status(401).json(error)  
+      res.status(500).json(error)  
     }
 }
 
@@ -40,7 +40,7 @@ exports.getAllDownloadedRecipesController = async(req,res)=>{
         const allDownloadRecipes = await downloads.find({userId})
         res.status(200).json(allDownloadRecipes)
     } catch (error) {
-        res.status(401).json(error)
+        res.status(500).json(error)
     }
 }
 
@@ -53,6 +53,6 @@ try {
     res.status(200).json(alldownloads)
     
 } catch (error) {
-    res.status(401).json(error)
+    res.status(500).json(error)
 }
 }

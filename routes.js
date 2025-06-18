@@ -47,4 +47,9 @@ routes.get('/all-users',userController.getAllUsersConstroller)
 //path to get all downloads
 routes.get('/all-downloads',downloadController.getAlldownloadController)
 
+//path to add a new recipe
+routes.post('/add-recipe',recipeController.addNewRecipeController)
+
+//path to delete a recipe
+routes.delete('/delete-recipe/:id',recipeController.deleteRecipeController)
 module.exports = routes
