@@ -3,6 +3,7 @@ const userController = require('./controllers/userController')
 const recipeController = require('./controllers/recipeController')
 const saveRecipeController = require('./controllers/savedRecipeController')
 const downloadController = require('./controllers/downloadController')
+const testimonialController = require('./controllers/testimonialController')
 const jwt = require('./middleware/jwtMiddleware')
 const routes = express.Router()
 
@@ -52,4 +53,8 @@ routes.post('/add-recipe',recipeController.addNewRecipeController)
 
 //path to delete a recipe
 routes.delete('/delete-recipe/:id',recipeController.deleteRecipeController)
+
+//path to add testimonial
+routes.post('/add-testimonial', testimonialController.addTestimonialController)
+
 module.exports = routes
