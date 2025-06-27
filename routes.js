@@ -57,4 +57,13 @@ routes.delete('/delete-recipe/:id',recipeController.deleteRecipeController)
 //path to add testimonial
 routes.post('/add-testimonial', testimonialController.addTestimonialController)
 
+//path to get all testimonial
+routes.get('/get-all-testimonials', testimonialController.getAllTestimonialController)
+
+//path to update testimony
+routes.put('/update-testimonial/:id',testimonialController.updateTestimonialStatusController)
+
+//path to get approved testimonial
+routes.get('/all-approved-testimonial',testimonialController.getAllApprovedTestimonialsController)
+
 module.exports = routes
